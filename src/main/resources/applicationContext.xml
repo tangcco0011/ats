@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean-mapping>
+	<service>
+		<interface name="flightService">
+			cn.kgc.tangcco.lihaozhe.service.impl.FlightServiceImpl
+		</interface>
+	</service>
+	<dao>
+		<interface name="flightDao">
+			cn.kgc.tangcco.lihaozhe.dao.impl.FlightDaoImpl
+		</interface>
+	</dao>
+</bean-mapping>

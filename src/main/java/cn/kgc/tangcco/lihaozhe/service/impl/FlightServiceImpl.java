@@ -71,6 +71,29 @@ public class FlightServiceImpl implements FlightService {
 
 	@Override
 	public void exportToTxt(List<Flight> flightList, String txtPath) {
+		String pathname = txtPath.substring(0, txtPath.lastIndexOf("/"));
+		File path = new File(pathname);
+		if(!path.exists()) {
+			if(path.mkdirs()) {
+				saveTxt(flightList,txtPath);
+			}else {
+				System.out.println("存储目录创建失败。");
+			}
+		}else {
+			saveTxt(flightList,txtPath);
+		}
+		
+	}
+
+	@Override
+	public void saveXml(String xmlPath) {
+		flightDao.saveXml(xmlPath);
+
+	}
+	/**
+	 * 存储txt文件
+	 */
+	public void saveTxt(List<Flight> flightList, String txtPath) {
 		if (flightList.size() > 0) {
 			File file = new File(txtPath);
 			if (file.exists()) {
@@ -78,11 +101,5 @@ public class FlightServiceImpl implements FlightService {
 			}
 			flightDao.exportToTxt(flightList, txtPath);
 		}
-	}
-
-	@Override
-	public void saveXml(String xmlPath) {
-		flightDao.saveXml(xmlPath);
-
 	}
 }

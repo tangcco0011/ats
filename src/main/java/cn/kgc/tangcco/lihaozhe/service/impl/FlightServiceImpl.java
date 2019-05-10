@@ -92,6 +92,8 @@ public class FlightServiceImpl implements FlightService {
 	}
 	/**
 	 * 存储txt文件
+	 * @param flightList	被存储的原始数据
+	 * @param txtPath		存储文件的位置
 	 */
 	public void saveTxt(List<Flight> flightList, String txtPath) {
 		if (flightList.size() > 0) {

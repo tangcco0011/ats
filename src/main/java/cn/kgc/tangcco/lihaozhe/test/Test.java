@@ -4,10 +4,10 @@ import cn.kgc.tangcco.lihaozhe.action.FlightAction;
 
 /**
  * <p>
- * 	项目名称: ats
+ * 项目名称: ats
  * </p>
  * <p>
- *	 类名称: Test
+ * 类名称: Test
  * </p>
  * 
  * @author 作者 : 李昊哲
@@ -16,9 +16,6 @@ import cn.kgc.tangcco.lihaozhe.action.FlightAction;
  */
 public class Test {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		// 启动系统
 		FlightAction fAction = new FlightAction();

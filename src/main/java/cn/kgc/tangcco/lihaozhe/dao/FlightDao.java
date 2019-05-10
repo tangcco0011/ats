@@ -50,7 +50,7 @@ public interface FlightDao {
 	void exportToTxt(List<Flight> flightList,String txtPath);
 	/**
 	 *	 将航班信息保存到xml文件中
-	 * @param xmlPath
+	 * @param xmlPath	xml文件存储路径
 	 */
 	void saveXml(String xmlPath) ;
 }

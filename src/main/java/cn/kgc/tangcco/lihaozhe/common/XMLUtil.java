@@ -57,7 +57,6 @@ public abstract class XMLUtil {
 	}
 
 	/**
-	 * @param document xml文件的文档对象
 	 * @return xml文件的根节点
 	 * @throws DocumentException xml文档异常
 	 */

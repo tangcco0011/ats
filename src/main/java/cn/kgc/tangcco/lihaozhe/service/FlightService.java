@@ -68,7 +68,7 @@ public interface FlightService {
 	/**
 	 * 将航班信息保存到xml文件中
 	 * 
-	 * @param xmlPath
+	 * @param xmlPath	xml文件路径
 	 */
 	void saveXml(String xmlPath);
 }

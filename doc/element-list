@@ -1,0 +1,8 @@
+cn.kgc.tangcco.lihaozhe.action
+cn.kgc.tangcco.lihaozhe.common
+cn.kgc.tangcco.lihaozhe.dao
+cn.kgc.tangcco.lihaozhe.dao.impl
+cn.kgc.tangcco.lihaozhe.entity
+cn.kgc.tangcco.lihaozhe.service
+cn.kgc.tangcco.lihaozhe.service.impl
+cn.kgc.tangcco.lihaozhe.test

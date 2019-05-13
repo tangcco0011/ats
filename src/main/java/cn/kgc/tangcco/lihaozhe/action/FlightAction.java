@@ -4,10 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Scanner;
 import java.util.SortedSet;
-import java.util.TreeSet;
 
 import cn.kgc.tangcco.lihaozhe.common.BeanFactory;
 import cn.kgc.tangcco.lihaozhe.common.LocalDateTimeUtil;
@@ -30,7 +28,7 @@ public class FlightAction {
 	/**
 	 * 是否有增加和删除操作的计数器，如果没有执行过操作则计数器为0，如果执行过增加或者删除操作则计数器的值大于0
 	 */
-	private static int status;
+	private static boolean status;
 	/**
 	 * 初始化业务层
 	 */
@@ -52,7 +50,7 @@ public class FlightAction {
 	/**
 	 * 初始化页面
 	 */
-	private void print() {
+	public void print() {
 		System.out.println("1 显示所有航班信息（起飞时间升序显示）");
 		System.out.println("2 查询航班（起飞时间升序显示）");
 		System.out.println("3 添加航班");
@@ -64,7 +62,7 @@ public class FlightAction {
 	/**
 	 * 页面动作
 	 */
-	private void option() {
+	public void option() {
 		print();
 		switch (scanner.next().trim()) {
 		case "1":
@@ -97,7 +95,7 @@ public class FlightAction {
 	/**
 	 * 添加航班
 	 */
-	private void addFlight() {
+	public void addFlight() {
 		System.out.print("请输入航班编号：");
 		String flightNo = scanner.next().trim();
 		System.out.print("起飞城市：");
@@ -118,7 +116,7 @@ public class FlightAction {
 			return;
 		}
 		if (flightService.addFlight(new Flight(flightNo, departureCity, departureTime, arrivalCity, arrivalTime)) > 0) {
-			status++;
+			status = true;
 			System.out.println("添加成功");
 		} else {
 			System.out.println("添加失败");
@@ -128,7 +126,7 @@ public class FlightAction {
 	/**
 	 * 从业务层获取数据 获取所有航班（根据起飞时间升序）
 	 */
-	private void getAllFlight() {
+	public void getAllFlight() {
 		SortedSet<Flight> ss = flightService.getAllFlight();
 		Iterator<Flight> iterator = ss.iterator();
 		Flight flight = null;
@@ -143,7 +141,7 @@ public class FlightAction {
 	/**
 	 * 从业务层获取数据 根据起飞城市和到达城市查询航班（根据起飞时间升序）
 	 */
-	private void queryFlightByCity() {
+	public void queryFlightByCity() {
 		System.out.print("请输入起飞城市：");
 		String departureCity = scanner.next().trim();
 		System.out.print("请输入到达城市：");
@@ -176,19 +174,21 @@ public class FlightAction {
 
 	/**
 	 * 通过业务层 将查询结果导出到txt文件
+	 * 
+	 * @param list 的航班信息
 	 */
-	private void exportToTxt(List<Flight> list) {
+	public void exportToTxt(List<Flight> list) {
 		flightService.exportToTxt(list, "src/main/resources/files/flights.txt");
 	}
 
 	/**
 	 * 删除的航班编号
 	 */
-	private void deleteFlight() {
+	public void deleteFlight() {
 		getAllFlight();
 		System.out.print("请输入要删除的航班编号：");
 		if (flightService.deleteFlight(scanner.next().trim()) > 0) {
-			status++;
+			status = true;
 			System.out.println("删除成功");
 			getAllFlight();
 		} else {
@@ -199,8 +199,8 @@ public class FlightAction {
 	/**
 	 * 退出系统
 	 */
-	private void exit() {
-		if (status > 0) {
+	public void exit() {
+		if (status) {
 			System.out.println("航班信息有 所调整 是否将调整后的航班信息存储到文件中");
 			System.out.println("保存请输入y或者Y，不保存按任意键退出系统");
 			System.out.print("请输入>>>");

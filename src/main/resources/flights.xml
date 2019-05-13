@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <flights>
+  <flight flightNo="NA1234">
+    <departureCity>北京</departureCity>
+    <departureTime>2019-08-02 13:30:00</departureTime>
+    <arrivalCity>上海</arrivalCity>
+    <arrivalTime>2019-08-02 15:28:00</arrivalTime>
+  </flight>
   <flight flightNo="NA2345">
     <departureCity>北京</departureCity>
     <departureTime>2019-08-02 11:00:00</departureTime>
@@ -24,11 +30,5 @@
     <departureTime>2019-08-02 10:30:00</departureTime>
     <arrivalCity>上海</arrivalCity>
     <arrivalTime>2019-08-02 12:28:00</arrivalTime>
-  </flight>
-  <flight flightNo="CS9876">
-    <departureCity>长春</departureCity>
-    <departureTime>2019-06-06 20:30:00</departureTime>
-    <arrivalCity>苏州</arrivalCity>
-    <arrivalTime>2019-06-06 22:00:00</arrivalTime>
   </flight>
 </flights>
